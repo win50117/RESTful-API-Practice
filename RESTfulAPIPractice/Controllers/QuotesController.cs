@@ -1,3 +1,4 @@
+using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,29 @@ namespace RESTfulAPIPractice.Controllers
     [ApiController]
     public class QuotesController : ControllerBase
     {
-        List<Quote> quotes = new List<Quote>(){
+        //模擬資料庫撈到的資料
+        static List<Quote> _quotes = new List<Quote>(){
             new Quote(){Id = 0, Author = "Emily", Description = "The brain is wider than the sky", Title = "書1"},
             new Quote(){Id = 1, Author = "Richard", Description = "True love stories never have endings.", Title = "書2"}
         };
+
+        [HttpGet] //http verbs(http請求方法) Read讀取
+        public IEnumerable<Quote> Get()
+        {
+            return _quotes;
+        }
+
+        [HttpPost] //Create新增
+        public void Post(Quote quote)
+        {
+            _quotes.Add(quote);
+        }
+
+        [HttpPut] //Update更新
+        public void Put(int Id)
+        {
+
+        }
+
     }
 }
