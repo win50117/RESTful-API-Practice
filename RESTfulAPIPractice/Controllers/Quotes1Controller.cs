@@ -11,7 +11,7 @@ namespace RESTfulAPIPractice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QuotesController : ControllerBase
+    public class Quotes1Controller : ControllerBase
     {
         //模擬資料庫撈到的資料
         static List<Quote> _quotes = new List<Quote>(){
