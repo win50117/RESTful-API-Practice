@@ -31,11 +31,16 @@ namespace RESTfulAPIPractice.Controllers
             _quotes.Add(quote);
         }
 
-        [HttpPut] //Update更新
-        public void Put(int Id)
+        [HttpPut("{id}")] //Update更新
+        public void Put(int id, Quote quote)
         {
-
+            _quotes[id] = quote;
         }
 
+        [HttpDelete("{id}")] //Delete刪除
+        public void Delete(int id)
+        {
+            _quotes.RemoveAt(id);
+        }
     }
 }
