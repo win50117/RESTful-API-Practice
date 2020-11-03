@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RESTfulAPIPractice.Data;
 
 namespace RESTfulAPIPractice.Controllers
 {
@@ -11,6 +12,12 @@ namespace RESTfulAPIPractice.Controllers
     [ApiController]
     public class QuotesController : ControllerBase
     {
+        QuotesDbContext _context;
+
+        public QuotesController(QuotesDbContext context)
+        {
+            _context = context;
+        }
         // GET: api/Quotes
         [HttpGet]
         public IEnumerable<string> Get()
