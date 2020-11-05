@@ -32,7 +32,7 @@ namespace RESTfulAPIPractice
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, QuotesDbContext quotesDbContext)
         {
             if (env.IsDevelopment())
             {
@@ -40,6 +40,8 @@ namespace RESTfulAPIPractice
             }
 
             app.UseHttpsRedirection();
+
+            // quotesDbContext.Database.EnsureCreated();//如果資料庫不存在，migration就會建立資料庫。
 
             app.UseRouting();
 

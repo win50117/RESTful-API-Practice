@@ -13,7 +13,6 @@ namespace RESTfulAPIPractice.Controllers
     public class QuotesController : ControllerBase
     {
         QuotesDbContext _context;
-
         public QuotesController(QuotesDbContext context)
         {
             _context = context;
